@@ -419,7 +419,8 @@
   </div>
 
   <div class="footer">
-    Christopher Riffel &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#54263d3232313814353821393a3d7a2427217a313021"><span class="__cf_email__" data-cfemail="a2d0cbc4c4c7cee2c3ced7cfcccb8cd2d1d78cc7c6d7">[email&#160;protected]</span></a>
+    Christopher Riffel &nbsp;·&nbsp; <a href="mailto:riffel@alumni.psu.edu">riffel@alumni.psu.edu</a>
+    &nbsp;·&nbsp; <a href="#" onclick="resetKey(); return false;">Reset API Key</a>
   </div>
 
 </div>
@@ -514,10 +515,15 @@ TONE
     addMessage('bot', "Hi there! 👋 I'm Ask Chris — your guide to everything about Christopher Riffel's career, background, and story. What would you like to know?");
   };
 
-  function saveKey() {
+  function resetKey() {
+    apiKey = '';
+    localStorage.removeItem('askchris_apikey');
+    document.getElementById('apiKeyInput').value = '';
+    document.getElementById('apiBanner').classList.remove('hidden');
+  }
     const val = document.getElementById('apiKeyInput').value.trim();
-    if (!val.startsWith('sk-')) {
-      alert('Please enter a valid Anthropic API key (starts with sk-)');
+    if (!val || val.length < 20) {
+      alert('Please enter a valid Anthropic API key');
       return;
     }
     apiKey = val;
