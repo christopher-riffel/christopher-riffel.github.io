@@ -517,11 +517,18 @@ TONE
   };
 
   function resetKey() {
+    const pwd = prompt('Enter password to reset API key:');
+    if (pwd !== 'swirl') {
+      alert('Incorrect password.');
+      return;
+    }
     apiKey = '';
     localStorage.removeItem('askchris_apikey');
     document.getElementById('apiKeyInput').value = '';
     document.getElementById('apiBanner').classList.remove('hidden');
   }
+
+  function saveKey() {
     const val = document.getElementById('apiKeyInput').value.trim();
     if (!val || val.length < 20) {
       alert('Please enter a valid Anthropic API key');
