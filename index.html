@@ -530,8 +530,8 @@ TONE
 
   function saveKey() {
     const val = document.getElementById('apiKeyInput').value.trim();
-    if (!val || val.length < 20) {
-      alert('Please enter a valid Anthropic API key');
+    if (!val) {
+      alert('Please paste your Anthropic API key');
       return;
     }
     apiKey = val;
