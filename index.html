@@ -18,10 +18,6 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 .header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px;}
 .header h1 span{color:var(--gold);}
 .header p{font-size:14px;color:var(--text-muted);font-weight:300;letter-spacing:.5px;}
-.api-banner{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:13px;color:var(--gold-light);display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
-.api-banner input{flex:1;min-width:180px;background:rgba(0,0,0,.3);border:1px solid rgba(201,168,76,.3);border-radius:8px;padding:8px 12px;color:#fff;font-size:13px;font-family:monospace;outline:none;}
-.api-banner input:focus{border-color:var(--gold);}
-.api-save-btn{background:var(--gold);color:var(--navy);border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;}
 .chat-card{background:rgba(17,34,64,.85);border:1px solid rgba(201,168,76,.15);border-radius:20px;backdrop-filter:blur(12px);box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;}
 .chat-topbar{background:rgba(10,22,40,.8);border-bottom:1px solid rgba(201,168,76,.1);padding:14px 22px;display:flex;align-items:center;gap:10px;}
 .topbar-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold);animation:pulse 2s ease infinite;}
@@ -67,12 +63,6 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
     <h1>Ask <span>Chris</span></h1>
     <p>Senior Technical Analyst &nbsp;·&nbsp; Insurtech &nbsp;·&nbsp; Agentic AI Enthusiast &nbsp;·&nbsp; Penn Stater</p>
   </div>
-  <div class="api-banner" id="apiBanner">
-    <span>🔑</span>
-    <span>Enter your Anthropic API key to activate Ask Chris:</span>
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
-    <button class="api-save-btn" onclick="doSaveKey()">Activate</button>
-  </div>
   <div class="chat-card">
     <div class="chat-topbar">
       <div class="topbar-dot"></div>
@@ -82,24 +72,22 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
     <div class="messages" id="messages"></div>
     <div class="input-area">
       <div class="input-row">
-        <input class="chat-input" id="userInput" type="text" placeholder="Ask me anything about Chris..." autocomplete="off" onkeydown="if(event.key==='Enter')doSend()"/>
-        <button class="send-btn" onclick="doSend()">
+        <input class="chat-input" id="userInput" type="text" placeholder="Ask me anything about Chris..." autocomplete="off"/>
+        <button class="send-btn" id="sendBtn">
           <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
         </button>
       </div>
       <div class="suggestions" id="suggestions">
-        <span class="suggestion-chip" onclick="doChip('Tell me about Chris')">Tell me about Chris</span>
-        <span class="suggestion-chip" onclick="doChip('Top technical skills?')">Top technical skills?</span>
-        <span class="suggestion-chip" onclick="doChip('What is he passionate about?')">What's he passionate about?</span>
-        <span class="suggestion-chip" onclick="doChip('Fun facts about Chris')">Fun facts about Chris</span>
+        <span class="suggestion-chip">Tell me about Chris</span>
+        <span class="suggestion-chip">Top technical skills?</span>
+        <span class="suggestion-chip">What's he passionate about?</span>
+        <span class="suggestion-chip">Fun facts about Chris</span>
       </div>
     </div>
   </div>
   <div class="footer">
     Christopher Riffel &nbsp;·&nbsp;
     <a href="mailto:riffel@alumni.psu.edu">riffel@alumni.psu.edu</a>
-    &nbsp;·&nbsp;
-    <a href="#" onclick="doResetKey();return false;">Reset API Key</a>
   </div>
 </div>
 <script src="app.js"></script>
