@@ -27,10 +27,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      justify-content: flex-start;
+      padding: 40px 20px;
       position: relative;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     body::before {
@@ -148,7 +149,7 @@
     }
 
     .messages {
-      height: 420px;
+      height: clamp(280px, 40vh, 420px);
       overflow-y: auto;
       padding: 24px 22px;
       display: flex;
@@ -364,7 +365,7 @@
 
     @media (max-width: 500px) {
       .msg-bubble { max-width: 88%; }
-      .messages { height: 360px; }
+      .messages { height: clamp(220px, 35vh, 360px); }
     }
   </style>
 </head>
@@ -419,13 +420,13 @@
   </div>
 
   <div class="footer">
-    Christopher Riffel &nbsp;·&nbsp; <a href="mailto:riffel@alumni.psu.edu">riffel@alumni.psu.edu</a>
+    Christopher Riffel &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection#15677c7373707955747960787b7c3b6566603b707160"><span class="__cf_email__" data-cfemail="b8cad1dededdd4f8d9d4cdd5d6d196c8cbcd96dddccd">[email&#160;protected]</span></a>
     &nbsp;·&nbsp; <a href="#" onclick="resetKey(); return false;">Reset API Key</a>
   </div>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const CHRIS_CONTEXT = `
 You are "Ask Chris" — a warm, engaging career chatbot representing Christopher Riffel.
 Answer questions about Chris in a friendly, professional tone. Refer to him as "Chris" or "he/him."
@@ -620,13 +621,4 @@ TONE
 
       if (data.error) {
         history.pop();
-        addMessage('bot', 'Error: ' + data.error.message + '. Please check your API key.');
-        return;
-      }
-
-      const reply = data.content?.[0]?.text || "I'm not sure how to answer that. Try asking something else!";
-      addMessage('bot', reply);
-
-    } catch (err) {
-      removeTyping();
-      history.po
+        addMessage('bot', 'Error: ' + data.error.message + '. Please ch
