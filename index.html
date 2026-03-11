@@ -339,7 +339,6 @@
       </div>
       <div class="suggestions" id="suggestions">
         <span class="suggestion-chip">Tell me about Chris</span>
-        <span class="suggestion-chip">What's his career pivot story?</span>
         <span class="suggestion-chip">Top technical skills?</span>
         <span class="suggestion-chip">What's he passionate about?</span>
         <span class="suggestion-chip">Fun facts about Chris</span>
@@ -349,14 +348,14 @@
 
   <div class="footer">
     Christopher Riffel &nbsp;·&nbsp;
-    <a href="mailto:riffel@alumni.psu.edu">riffel@alumni.psu.edu</a>
+    <a href="/cdn-cgi/l/email-protection#9ceef5fafaf9f0dcfdf0e9f1f2f5b2ecefe9b2f9f8e9"><span class="__cf_email__" data-cfemail="5a28333c3c3f361a3b362f373433742a292f743f3e2f">[email&#160;protected]</span></a>
     &nbsp;·&nbsp;
     <a href="#" id="resetLink">Reset API Key</a>
   </div>
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 var CHRIS_CONTEXT = [
   'You are "Ask Chris" - a warm, engaging career chatbot representing Christopher Riffel.',
   'Answer questions about Chris in a friendly, professional tone. Refer to him as "Chris" or "he/him."',
@@ -544,14 +543,11 @@ window.addEventListener('load', function() {
   document.getElementById('userInput').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') sendMessage();
   });
-  document.querySelectorAll('.suggestion-chip').forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      document.getElementById('userInput').value = chip.textContent;
+  var chips = document.querySelectorAll('.suggestion-chip');
+  for (var i = 0; i < chips.length; i++) {
+    chips[i].addEventListener('click', function() {
+      document.getElementById('userInput').value = this.textContent;
       sendMessage();
     });
-  });
-});
-</script>
-
-</body>
-</html>
+  }
+  documen
